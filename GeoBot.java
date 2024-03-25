@@ -207,7 +207,7 @@ public class GeoBot {
 
     public static void main(String[] args){
 
-        BotUI botUI = new BotUI();
+        BotOutput botUI = new BotOutput();
         botUI.printFirstNChars(TEXT_FILE, 50);
         GeoBot geoBot = new GeoBot();
         Scanner scanner = new Scanner(System.in);

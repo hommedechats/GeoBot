@@ -1,4 +1,4 @@
-public class BotUI {
+public class BotOutput {
 
     public void printFirstNChars(String line, int charCount){
 
