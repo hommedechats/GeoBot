@@ -3,10 +3,10 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Reader {
-    private final String TEXT_FILE = "countries.txt";
-    private final String SEPARATOR = "~";
+    private static final String TEXT_FILE = "countries.txt";
+    private static final String SEPARATOR = "~";
 
-    public String[][] readSeparatedLinesFromTxt() {
+    public static String[][] readSeparatedLinesFromTxt() {
         String[][] capitals = new String[4][16];
         int rowIndex = 0;
         int columnIndex = 0;

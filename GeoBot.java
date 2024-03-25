@@ -22,7 +22,6 @@ public class GeoBot {
         this.currentState = 0;
         this.streakCount = 0;
         this.userName = "";
-
     }
 
     public void setStreakCount(int streakCount){
@@ -211,6 +210,7 @@ public class GeoBot {
         botUI.printFirstNChars(TEXT_FILE, 50);
         GeoBot geoBot = new GeoBot();
         Scanner scanner = new Scanner(System.in);
+        String[][] capitals = Reader.readSeparatedLinesFromTxt();
         readSeparatedLinesFromTxt(TEXT_FILE, "~");
         System.out.println("Hi, my name is GeoBot and I will help you learn the capital cities of the world. What is your name?");
         geoBot.setUserName(scanner.nextLine());
