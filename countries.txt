@@ -1,0 +1,64 @@
+Lithuania,Vilnius
+Belarus,Minsk
+Estonia,Tallinn
+Italy,Rome
+France,Paris
+Netherlands,Amsterdam
+United Kingdom,London
+Latvia,Riga
+Germany,Berlin
+Greece,Athens
+Japan,Tokyo
+Norway,Oslo
+Spain,Madrid
+Czech Republic,Prague
+Ukraine,Kyiv
+~
+Canada,Ottawa
+South Korea,Seoul
+Egypt,Cairo
+Switzerland,Bern
+Australia,Canberra
+Peru,Lima
+Romania,Bucharest
+New Zealand,Wellington
+Philippines,Manila
+Sweden,Stockholm
+Poland,Warsaw
+Luxembourg,Luxembourg
+Mexico,Mexico City
+Belgium,Brussels
+India,New Delhi
+~
+Chile,Santiago
+Albania,Tirana
+Malaysia,Kuala Lumpur
+Slovakia,Bratislava
+Croatia,Zagreb
+Syria,Damascus
+Colombia,Bogota
+Bosnia and Herzegovina,Sarajevo
+Uruguay,Montevideo
+Lebanon,Beirut
+Libya,Tripoli
+Georgia,Tbilisi
+North Korea,Pyongyang
+Venezuela,Caracas
+Algeria,Algiers
+North Macedonia,Skopje
+~
+Montenegro,Podgorica
+Ghana,Accra
+Zimbabwe,Harare
+Angola,Luanda
+Bhutan,Thimphu
+Uganda,Kampala
+Myanmar,Naypyidaw
+Marshall Islands,Majuro
+The Gambia,Banjul
+Cape Verde,Praia
+Eritrea,Asmara
+Guinea,Conakry
+Republic of the Congo,Brazzaville
+Tajikistan,Dushanbe
+Burkina Faso,Ouagadougou
