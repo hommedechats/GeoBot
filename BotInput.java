@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BotInput{
+public class BotInput {
 
     public int getIntInRange(Scanner scanner, int lowerBound, int upperBound){
 

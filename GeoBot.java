@@ -54,10 +54,10 @@ public class GeoBot {
         int key;
         String answer = "";
         int result;
-    
+        Random random = new Random();
         while (!answer.equalsIgnoreCase("bye")){
 
-            key = getRandomIndex(capitals[0].length);
+            key = random.nextInt(capitals[0].length);
             String[] parts = capitals[currentState][key].split(",");
             String country = parts[0];
             String capital = parts[1];
@@ -87,15 +87,6 @@ public class GeoBot {
             }
         }        
     }
-
-    public static int getRandomIndex(int maxValue){//delete probably
-
-        Random random = new Random();
-        int key = random.nextInt(maxValue);
-
-        return key;
-    }
-
     public int compareAnswer(String correctCapital, String guessCapital){
 
         if(guessCapital.equalsIgnoreCase(correctCapital)){
