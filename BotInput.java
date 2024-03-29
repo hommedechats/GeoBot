@@ -4,7 +4,6 @@ public class BotInput{
 
     public int getIntInRange(Scanner scanner, int lowerBound, int upperBound){
 
-       // InputHandler inputHandler = new InputHandler();
         System.out.println("How good is your knowledge on capital cities from " + lowerBound + " to "+ upperBound +"?");
         
         while(true){

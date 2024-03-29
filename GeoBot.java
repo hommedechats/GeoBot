@@ -11,9 +11,11 @@ public class GeoBot {
     private static String[] difficultyStates = {"easy", "normal", "hard", "impossible"};
     private int currentState;
     private String userName;
+
     private static final String TEXT_FILE = "countries.txt";
     private static final String SEPARATOR = "~";
     private static final int ROW_COUNT = 16;
+    private static final int HINT_CHAR_COUNT = 2;
     
     public static String[][] capitals = new String[difficultyStates.length][ROW_COUNT];
 
@@ -55,7 +57,7 @@ public class GeoBot {
     
         while (!answer.equalsIgnoreCase("bye")){
 
-            key = createRandomKey(capitals[0].length);
+            key = getRandomIndex(capitals[0].length);
             String[] parts = capitals[currentState][key].split(",");
             String country = parts[0];
             String capital = parts[1];
@@ -86,7 +88,7 @@ public class GeoBot {
         }        
     }
 
-    public static int createRandomKey(int maxValue){
+    public static int getRandomIndex(int maxValue){//delete probably
 
         Random random = new Random();
         int key = random.nextInt(maxValue);
@@ -215,7 +217,7 @@ public class GeoBot {
     public static void main(String[] args){
 
         BotOutput botUI = new BotOutput();
-        botUI.printFirstNChars(TEXT_FILE, 50);
+        botUI.printFirstNChars(TEXT_FILE, HINT_CHAR_COUNT);
         GeoBot geoBot = new GeoBot();
         Scanner scanner = new Scanner(System.in);
         String[][] capitals = Reader.readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR);
