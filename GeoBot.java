@@ -12,6 +12,7 @@ public class GeoBot {
     private int currentState;
     private String userName;
     private static final String TEXT_FILE = "countries.txt";
+    private static final String SEPARATOR = "~";
     private static final int ROW_COUNT = 16;
     
     public static String[][] capitals = new String[difficultyStates.length][ROW_COUNT];
@@ -37,6 +38,13 @@ public class GeoBot {
 
     public String getUserName(){
         return userName;
+    }
+    public int getStreakCount(){
+        return streakCount;
+    }
+
+    public int getCurrentState(){
+        return currentState;
     }
 
     public void quizLoop(Scanner scanner){
@@ -210,8 +218,8 @@ public class GeoBot {
         botUI.printFirstNChars(TEXT_FILE, 50);
         GeoBot geoBot = new GeoBot();
         Scanner scanner = new Scanner(System.in);
-        String[][] capitals = Reader.readSeparatedLinesFromTxt();
-        readSeparatedLinesFromTxt(TEXT_FILE, "~");
+        String[][] capitals = Reader.readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR);
+        readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR);
         System.out.println("Hi, my name is GeoBot and I will help you learn the capital cities of the world. What is your name?");
         geoBot.setUserName(scanner.nextLine());
         System.out.println("Nice to meet you, " + geoBot.getUserName() + " :)\nYou can stop our conversation anytime by saying \"bye\"");
