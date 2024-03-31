@@ -55,7 +55,7 @@ public class GeoBot {
         String answer = "";
         Random random = new Random();
         InputHandler inputHandler = new InputHandler();
-        
+
         while (!answer.equalsIgnoreCase("bye")){
 
             key = random.nextInt(capitals[0].length);
@@ -79,7 +79,7 @@ public class GeoBot {
                     System.out.println("The correct answer was: " + capital);
                 }
             }
-            printStreakCount(); 
+            BotOutput.printStreakCount(streakCount, userName); 
             if(changeDifficulty()){
                 System.out.println("I've changed the difficulty level to " + difficultyStates[currentState] + " :)");
             }
@@ -109,28 +109,6 @@ public class GeoBot {
         }        
     }
 
-    public void printStreakCount(){
-        
-        if(streakCount == 3){
-            System.out.println("You're doing great " + userName + ":)");
-        }
-        else if(streakCount == 5){
-            System.out.println("You're doing fantastic :)");
-        }
-        else if(streakCount == 10){
-            System.out.println("You've answered correct 10 times in a row!!!");
-        }
-        else if(streakCount == -3){
-            System.out.println("You'll get it next time");
-        }
-        else if(streakCount == -5){
-            System.out.println("Wrong again :/");
-        }
-        else if(streakCount == -10){
-            System.out.println("You're hopeless, " + userName);
-        }
-    }
-
     public boolean changeDifficulty(){
 
         if(streakCount % 3 == 0 && currentState != 3 && streakCount > 0){
@@ -143,13 +121,7 @@ public class GeoBot {
         }
         return false;
     }
-
-    public void giveHint(String correctCapital){
-
-        char firstLetter = correctCapital.charAt(0);
-        char secondLetter = correctCapital.charAt(1);
-        System.out.println("The first two letters are: " + firstLetter + secondLetter);
-    }
+    
 
     public static int getStartingDifficulty(Scanner scanner){
 
