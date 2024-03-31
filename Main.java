@@ -10,17 +10,17 @@ public class Main {
         final int HINT_CHAR_COUNT = 2;
         final String CAPITAL_SEPATOR = ",";
 
-        BotOutput botUI = new BotOutput();
+        BotOutput botOutput = new BotOutput();
         GeoBot geoBot = new GeoBot();
         Scanner scanner = new Scanner(System.in);
         BotInput botInput = new BotInput();
 
-        String[][] capitals = Reader.readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR);
+        String[][] capitals = Reader.readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR, geoBot.getDifficultyStates().length, ROW_COUNT);
 
         System.out.println("Hi, my name is GeoBot and I will help you learn the capital cities of the world. What is your name?");
         geoBot.setUserName(scanner.nextLine());
         System.out.println("Nice to meet you, " + geoBot.getUserName() + " :)\nYou can stop our conversation anytime by saying \"bye\"");
-        geoBot.setCurrentState(botInput.getIntInRange(scanner, 0, 3));
+        geoBot.setCurrentState(botInput.getIntInRange(scanner, 0, geoBot.getDifficultyStates().length - 1));
 
         String answer = "";
         Random random = new Random();
@@ -35,7 +35,7 @@ public class Main {
             if(!geoBot.compareAnswer(parts[1], answer)){
                 answer = inputHandler.promptUser("Incorrect :/ \nDo you want a hint? Say \"please\" if you do");
                 if(answer.equalsIgnoreCase("please")){
-                    answer = inputHandler.promptUser(BotOutput.getFirstNChars(parts[1], HINT_CHAR_COUNT));
+                    answer = inputHandler.promptUser(botOutput.getFirstNChars(parts[1], HINT_CHAR_COUNT));
                     if(geoBot.compareAnswer(parts[1], answer)){
                         System.out.println("Correct :)");
                     }
@@ -45,7 +45,8 @@ public class Main {
             else{
                 System.out.println("Correct :)");
             }
-            BotOutput.printStreakCount(geoBot.getStreakCount(), geoBot.getUserName()); 
+            
+            botOutput.printStreakCount(geoBot.getStreakCount(), geoBot.getUserName()); 
             if(geoBot.isChangedDifficulty()){
                   System.out.println("I've changed the difficulty level to " + geoBot.getDifficultyStates()[geoBot.getCurrentState()] + " :)");
             }

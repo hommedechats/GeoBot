@@ -1,6 +1,6 @@
 public class BotOutput {
 
-    public static String getFirstNChars(String line, int charCount){
+    public String getFirstNChars(String line, int charCount){
 
         String nChars;
         char[] lineArray = new char[line.length()];
@@ -17,7 +17,7 @@ public class BotOutput {
         return "The first " + charCount + " letters are: " + nChars;
 
     }
-    public static void printStreakCount(int streak, String name){
+    public void printStreakCount(int streak, String name){
         
         if(streak == 3){
             System.out.println("You're doing great " + name + ":)");

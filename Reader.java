@@ -4,8 +4,8 @@ import java.io.IOException;
 
 public class Reader {
 
-    public static String[][] readSeparatedLinesFromTxt(String fileName, String separator) {
-        String[][] array = new String[4][15];
+    public static String[][] readSeparatedLinesFromTxt(String fileName, String separator, int columnCount, int rowCount) {
+        String[][] array = new String[columnCount][rowCount];
         int rowIndex = 0;
         int columnIndex = 0;
 

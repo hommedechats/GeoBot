@@ -38,9 +38,9 @@ public class GeoBot {
         return difficultyStates;
     }
 
-    public boolean compareAnswer(String correctCapital, String guessCapital){//@fix    -What is the capital of North Korea?
-                                                                                // -bye
-        if(guessCapital.equalsIgnoreCase(correctCapital)){                      // -Incorrect :/    
+    public boolean compareAnswer(String correctCapital, String guessCapital){
+                                                                                
+        if(guessCapital.equalsIgnoreCase(correctCapital)){                          
             if(streakCount < 0){
                 setStreakCount(1);
             }
