@@ -5,7 +5,7 @@ import java.io.IOException;
 public class Reader {
 
     public static String[][] readSeparatedLinesFromTxt(String fileName, String separator) {
-        String[][] capitals = new String[4][16];
+        String[][] array = new String[4][15];
         int rowIndex = 0;
         int columnIndex = 0;
 
@@ -17,7 +17,7 @@ public class Reader {
                     rowIndex = 0;
                 }
                 else{
-                    capitals[columnIndex][rowIndex] = line;
+                    array[columnIndex][rowIndex] = line;
                     rowIndex++;
                 }
             }
@@ -25,6 +25,6 @@ public class Reader {
         catch (IOException e) {
             e.printStackTrace();
         }
-        return capitals;
+        return array;
     }
 }

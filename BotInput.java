@@ -14,7 +14,7 @@ public class BotInput {
                     return intInRange;
                 }
                 else{
-                    System.out.println("Please enter a number from " + lowerBound + "to" + upperBound + " :)");
+                    System.out.println("Please enter a number from " + lowerBound + " to " + upperBound + " :)");
                 }
             }
             catch (NumberFormatException e){
