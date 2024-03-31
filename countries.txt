@@ -42,7 +42,6 @@ Uruguay,Montevideo
 Lebanon,Beirut
 Libya,Tripoli
 Georgia,Tbilisi
-North Korea,Pyongyang
 Venezuela,Caracas
 Algeria,Algiers
 North Macedonia,Skopje

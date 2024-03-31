@@ -16,6 +16,7 @@ public class GeoBot {
     private static final String SEPARATOR = "~";
     private static final int ROW_COUNT = 16;
     private static final int HINT_CHAR_COUNT = 2;
+    private static final String CAPITAL_SEPATOR = ",";
     
     public static String[][] capitals = new String[difficultyStates.length][ROW_COUNT];
 
@@ -51,39 +52,47 @@ public class GeoBot {
 
     public void quizLoop(Scanner scanner){
 
-        int key;
+        int key = 1;
+        try{
+
+        
         String answer = "";
         Random random = new Random();
         InputHandler inputHandler = new InputHandler();
 
         while (!answer.equalsIgnoreCase("bye")){
 
-            key = random.nextInt(capitals[0].length);
-            String[] parts = capitals[currentState][key].split(","); //@fix overreaches probably
-            String country = parts[0];
-            String capital = parts[1];
+                key = random.nextInt(capitals[0].length);
+                String[] parts = capitals[currentState][key-1].split(CAPITAL_SEPATOR);
+                String country = parts[0];
+                String capital = parts[1];
 
-            answer = inputHandler.promptUser("What is the capital of " + country + "?");
-           
-            if(!compareAnswer(capital, answer)){
+                answer = inputHandler.promptUser("What is the capital of " + country + "?");
+            
+                if(!compareAnswer(capital, answer)){
 
-                answer = inputHandler.promptUser("Do you want a hint? Say \"please\" if you do");
-                if(answer.equalsIgnoreCase("please")){
+                    answer = inputHandler.promptUser("Do you want a hint? Say \"please\" if you do");
+                    if(answer.equalsIgnoreCase("please")){
 
-                    answer = inputHandler.promptUser(BotOutput.getFirstNChars(capital, HINT_CHAR_COUNT));
-                    if(!compareAnswer(capital, answer)){
+                        answer = inputHandler.promptUser(BotOutput.getFirstNChars(capital, HINT_CHAR_COUNT));
+                        if(!compareAnswer(capital, answer)){
+                            System.out.println("The correct answer was: " + capital);
+                        }
+                    }
+                    else {
                         System.out.println("The correct answer was: " + capital);
                     }
                 }
-                else {
-                    System.out.println("The correct answer was: " + capital);
+                BotOutput.printStreakCount(streakCount, userName); 
+                if(changeDifficulty()){
+                    System.out.println("I've changed the difficulty level to " + difficultyStates[currentState] + " :)");
                 }
-            }
-            BotOutput.printStreakCount(streakCount, userName); 
-            if(changeDifficulty()){
-                System.out.println("I've changed the difficulty level to " + difficultyStates[currentState] + " :)");
-            }
-        }        
+
+        }
+    } catch(NullPointerException e){
+        System.out.println(key);
+        System.out.println(currentState);
+    }
     }
     public boolean compareAnswer(String correctCapital, String guessCapital){//@fix    -What is the capital of North Korea?
                                                                                 // -bye
@@ -173,10 +182,10 @@ public class GeoBot {
     public static void main(String[] args){
 
         BotOutput botUI = new BotOutput();
-       // botUI.printFirstNChars(TEXT_FILE, HINT_CHAR_COUNT);
         GeoBot geoBot = new GeoBot();
         Scanner scanner = new Scanner(System.in);
-        String[][] capitals = Reader.readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR);
+
+       // String[][] capitals = Reader.readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR);
         readSeparatedLinesFromTxt(TEXT_FILE, SEPARATOR);
         System.out.println("Hi, my name is GeoBot and I will help you learn the capital cities of the world. What is your name?");
         geoBot.setUserName(scanner.nextLine());
