@@ -8,7 +8,9 @@ public class InputHandler {
     }
 
     public String promptUser(String message) {
+
         System.out.println(message);
-        return scanner.nextLine();
+
+        return scanner.nextLine().trim();
     }
 }

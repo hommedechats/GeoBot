@@ -1,6 +1,6 @@
 public class BotOutput {
 
-    public void printFirstNChars(String line, int charCount){
+    public static String getFirstNChars(String line, int charCount){
 
         String nChars;
         char[] lineArray = new char[line.length()];
@@ -12,9 +12,9 @@ public class BotOutput {
             }
             lineArray[i] = line.charAt(i);
         }
-
         nChars = new String(lineArray);
-        System.out.println("The first " + charCount + " letters are: " + nChars);
+
+        return "The first " + charCount + " letters are: " + nChars;
 
     }
 }
