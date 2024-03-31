@@ -9,8 +9,8 @@ public class BotInput {
         while(true){
             try{
                 int intInRange = Integer.parseInt(scanner.nextLine());
+                
                 if(intInRange >= lowerBound && intInRange <= upperBound){
-                  //  System.out.println("Got it. Let's start you off on the " + difficultyStates[intInRange] + " difficulty :)");
                     return intInRange;
                 }
                 else{
